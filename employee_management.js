@@ -33,7 +33,15 @@ class Department {
         return this.employees.reduce((total,employee)=>
         total + employee.salary,0)
     };
+    calculateTotalSalaryWithBonus() {
+        return this.employees.reduce((total,employee)=> {
+            if (employee instanceof Manager) {
+                return total + employee.salary + employee.bonus
+        };
+        return total + employee.salary
+    },0);
 };
+}
 
 const department1 = new Department ("Customer Service")
 const employee2 = new Employee ("Kate", 4000, "Assistant", "Customer Service")
@@ -73,3 +81,12 @@ Bonus: $${this.bonus}`
  console.log(`Test New Customer Service Department Salary:`)
  console.log(`Total Salary: $${TotalCustomerServiceSalary}`);
  
+//Task 4: Handle bonuses in the department salary calculation
+let TotalCustomerServiceSalaryWithBonus = department1.calculateTotalSalaryWithBonus()
+console.log(`Task 4: Handle bonuses`)
+console.log(`Display of Customer Service Department:`)
+console.log(employee1.details)
+console.log(employee2.details)
+console.log(CustomerServiceManager.details)
+console.log(`Total Salary: ${TotalCustomerServiceSalary}`)
+console.log(`Total Salary with Manager Bonus: ${TotalCustomerServiceSalaryWithBonus}`)
