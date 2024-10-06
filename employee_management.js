@@ -88,5 +88,49 @@ console.log(`Display of Customer Service Department:`)
 console.log(employee1.details)
 console.log(employee2.details)
 console.log(CustomerServiceManager.details)
-console.log(`Total Salary: ${TotalCustomerServiceSalary}`)
+console.log(`Total Salary for Customer Service: ${TotalCustomerServiceSalary}`)
 console.log(`Total Salary with Manager Bonus: ${TotalCustomerServiceSalaryWithBonus}`)
+
+//Task 5: Create and manage departments and employees
+const engineering = new Department("Engineering");
+
+const marketing = new Department("Marketing");
+
+const alice = new Employee("Alice", 80000, "Developer", "Engineering");
+
+const john = new Employee("Joe", 75000, "Designer", "Marketing");
+
+const charlie = new Manager("Charlie", 120000, "Engineering Manager", "Engineering", 20000);
+
+const diana = new Manager("Diana", 130000, "Marketing Manager", "Marketing", 25000);
+
+//Add employees to departments
+
+engineering.addEmployee(alice);
+
+engineering.addEmployee(charlie);
+
+marketing.addEmployee(john);
+
+marketing.addEmployee(diana);
+
+//Test the addition
+console.log(`Task 5: Create and manage departments and employees`)
+
+console.log(`Display Details of Employees and Managers:`)
+
+console.log(alice.details)
+
+console.log(john.details)
+
+console.log(charlie.details)
+
+console.log(diana.details)
+
+console.log(`Total salary for Engineering: $${engineering.getTotalDepartmentSalary()}`);
+
+console.log(`Total salary with bonuses for Engineering: $${engineering.calculateTotalSalaryWithBonus()}`);
+
+console.log(`Total salary for Marketing: $${marketing.getTotalDepartmentSalary()}`);
+
+console.log(`Total salary with bonuses for Marketing: $${marketing.calculateTotalSalaryWithBonus()}`);
